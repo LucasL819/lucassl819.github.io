@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta name="robots" content="noindex,nofollow">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>工作台导航</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f3f6fb;
+      --surface: rgba(255, 255, 255, 0.9);
+      --text: #172033;
+      --muted: #64708a;
+      --line: #e5eaf3;
+      --primary: #3867f2;
+      --primary-dark: #2550d4;
+      --shadow: 0 20px 55px rgba(29, 52, 98, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", "Microsoft YaHei", system-ui, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(90, 137, 255, 0.18), transparent 32%),
+        radial-gradient(circle at 88% 90%, rgba(90, 211, 184, 0.16), transparent 32%),
+        var(--bg);
+    }
+
+    .wrap {
+      width: min(100% - 40px, 1080px);
+      margin: 0 auto;
+      padding: 70px 0 36px;
+    }
+
+    header { margin-bottom: 34px; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 24px;
+      height: 3px;
+      border-radius: 99px;
+      background: var(--primary);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(34px, 6vw, 58px);
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+    }
+
+    .intro {
+      max-width: 610px;
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      display: flex;
+      min-height: 220px;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+
+    .card:hover,
+    .card:focus-visible {
+      border-color: rgba(56, 103, 242, .4);
+      box-shadow: 0 24px 60px rgba(29, 52, 98, .18);
+      outline: none;
+      transform: translateY(-5px);
+    }
+
+    .icon {
+      display: grid;
+      width: 52px;
+      height: 52px;
+      place-items: center;
+      border-radius: 16px;
+      background: #edf2ff;
+      color: var(--primary);
+      font-size: 24px;
+    }
+
+    .card h2 {
+      margin: 28px 0 8px;
+      font-size: 22px;
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .visit {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 24px;
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .arrow { font-size: 20px; transition: transform .2s ease; }
+    .card:hover .arrow, .card:focus-visible .arrow { transform: translateX(5px); }
+
+    footer {
+      margin-top: 32px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 700px) {
+      .wrap { width: min(100% - 28px, 560px); padding-top: 42px; }
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 200px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <div class="eyebrow">Internal workspace</div>
+      <h1>工作台导航</h1>
+      <p class="intro">常用业务工具集中入口，点击卡片即可打开对应系统。</p>
+    </header>
+
+    <section class="grid" aria-label="系统入口">
+      <a class="card" href="http://DESKTOP-HAI1AM7:4180/" target="_blank" rel="noopener noreferrer">
+        <div>
+          <div class="icon" aria-hidden="true">⌕</div>
+          <h2>关键词跟踪站</h2>
+          <p>查看关键词排名、变化趋势及跟踪数据。</p>
+        </div>
+        <div class="visit"><span>打开系统</span><span class="arrow" aria-hidden="true">→</span></div>
+      </a>
+
+      <a class="card" href="http://DESKTOP-HAI1AM7:4173/" target="_blank" rel="noopener noreferrer">
+        <div>
+          <div class="icon" aria-hidden="true">◈</div>
+          <h2>运营数据看板</h2>
+          <p>周报/月报数据看板，汇总利润与广告数据。</p>
+        </div>
+        <div class="visit"><span>打开系统</span><span class="arrow" aria-hidden="true">→</span></div>
+      </a>
+    </section>
+
+    <footer>内网导航 · 仅限公司网络访问</footer>
+  </main>
+</body>
+</html>
